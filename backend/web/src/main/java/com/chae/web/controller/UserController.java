@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import net.bytebuddy.asm.Advice.Return;
+
 import org.springframework.web.bind.annotation.PutMapping;
 
 
@@ -86,15 +89,16 @@ public class UserController {
         repo.deleteById(Long.parseLong(id));
     }
 
-    @GetMapping("/{userId}/{password}")
-    public UserDTO Login(@PathVariable String userId,
-                                        @PathVariable String password){
-                                            System.out.println("로그인");
-        return modelMapper().map(
-            repo.findByUserIdAndPassword(userId, password),
-            UserDTO.class
+    @PostMapping("/login")
+    public UserDTO login(@RequestBody UserDTO dto){
+            System.out.println("로그인진입");
             
-        );
+            
+            UserDTO o = modelMapper().map(repo.findByUserIdAndPassword(dto.getUserId(), dto.getPassword()),UserDTO.class);
+            
+            System.out.println(o);
+            return o;
+        
     }
 
 

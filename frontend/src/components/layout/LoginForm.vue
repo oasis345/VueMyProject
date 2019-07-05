@@ -46,33 +46,36 @@ export default {
         }
 },
 methods:{
-  store(){
-          store.state.id = this.id;
-          store.state.userId = this.userId;
-          store.state.userName = this.userName;
-          store.state.password = this.password;
-          store.state.email = this.email;
-        },
+  // store(){
+  //         store.state.id = this.id;
+  //         store.state.userId = this.userId;
+  //         store.state.userName = this.userName;
+  //         store.state.password = this.password;
+  //         store.state.email = this.email;
+  //       },
     
       Login(){
-        if(this.userId && this.password != null){
-        axios.get(`${this.context}/${this.userId}/${this.password}`)
+        // if(this.userId && this.password != null){
+          let data={
+            userId: this.userId,
+            password: this.password
+            
+          }
+            let headers = {
+           'Content-Type': 'application/json',
+           'Authorization': 'JWT fefege..'
+         }
+        axios.post(`${this.context}/login`,JSON.stringify(data),{headers: headers})
         .then(res=>{
           alert('로그인성공')
-          // this.store().id =res.data.id;
-          // this.store().userId = res.data.userId;
-          // this.store().userName = res.data.userName;
-          // this.store().password = res.data.password;
-          // this.store().email = res.data.email;
-          
-          
+          this.$router.push('/Board')
         })
         .catch(e=>{
           alert('아이디 및 비밀번호를 확인하세요')
         })
-      }else{
-        alert('아이디및 비밀번호를 입력하세요')
-      }
+      // }else{
+      //   alert('아이디및 비밀번호를 입력하세요')
+      // }
       },
       
   }
