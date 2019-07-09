@@ -6,38 +6,33 @@ class Mypage extends Component{
         return(
             <div>
                 <form onSubmit="{this.handleSubmit}">
-                <MDBTable striped>
+      <MDBTable striped>
       <MDBTableHead>
-        <tr>
+        {/* <tr>
           <th >#</th>
           <th>userId</th>
           <th>userName</th>
           <th>email</th>
-        </tr>
+        </tr> */}
       </MDBTableHead>
       <MDBTableBody>
         <tr >
-          <th rowSpan="2">1</th>
+          <th rowSpan="3">1</th>
           <th>Id</th>
           <th>이름</th>
           <th>이메일</th>
         </tr>
         <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
+          <td>채</td>
+          <td>채형국</td>
+          <td>guk@naver.com</td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
+          <td>연락처</td>
+          <td colSpan='3'>010-8580-9237</td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>Larry</td>
-          <td>the Bird</td>
+          <td>주 소(도시)</td>
           <td>@twitter</td>
         </tr>
           <tr>

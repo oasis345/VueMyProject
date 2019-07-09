@@ -7,9 +7,15 @@ MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
 import Login from '../containers/Login';
 import join from '../containers/Join';
 import Mypage from '../containers/Mypage';
-import Home from '../containers/Home';
+import Hello from "../containers/customer/Hello";
+import LightSwitch from '../LightSwitch'
+import Timer from '../containers/customer/Timer'
+import TodoApp from '../containers/customer/TodoApp'
+import Clock from '../containers/customer/Clock'
+import Prac2 from '../Prac2'
+
 class Navbar extends Component {
-  
+
 state = {
   isOpen: false
 };
@@ -17,8 +23,7 @@ state = {
 toggleCollapse = () => {
   this.setState({ isOpen: !this.state.isOpen });
 }
-
-render() {
+ render() {
   return (
     <Router>
       <MDBNavbar color="red" dark expand="md">
@@ -29,23 +34,28 @@ render() {
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <MDBNavbarNav left>
             <MDBNavItem active>
-              <MDBNavLink to="/Login">Home</MDBNavLink>
+              <MDBNavLink to="/Timer">Timer</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/join">Features</MDBNavLink>
+              <MDBNavLink to="/LightSwitch">LightSwitch</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/mypage">Pricing</MDBNavLink>
+              <MDBNavLink to="/Hello">Hello</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
-                  <span className="mr-2">메뉴</span>
+                  <span className="mr-2">회원메뉴</span>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
+                  <MDBDropdownItem><Link to="/Login">로그인</Link></MDBDropdownItem>
+                  <MDBDropdownItem><Link to="/Join">회원가입</Link></MDBDropdownItem>
+                  <MDBDropdownItem><Link to="/mypage">마이페이지</Link></MDBDropdownItem>
+                  <MDBDropdownItem><Link to="/todoApp">ToDo App</Link></MDBDropdownItem>
+                  <MDBDropdownItem><Link to="/clock">Clock</Link></MDBDropdownItem>
+                  <MDBDropdownItem><Link to="/prac2">Prac2</Link></MDBDropdownItem>
+                  
                 </MDBDropdownMenu>
-                
-          
               </MDBDropdown>
             </MDBNavItem>
           </MDBNavbarNav>
@@ -62,10 +72,15 @@ render() {
 
      
       </MDBNavbar>
-      <Route path="/Login" exact component={Login} />
+      <Route path="/login" exact component={Login} />
       <Route path="/join" component={join} />
       <Route path="/mypage" component={Mypage} />
-      <Route path="/Home" component={Home} />
+      <Route path="/lightSwitch" component={LightSwitch} />
+      <Route path="/timer" component={Timer} />
+      <Route path="/hello" component={Hello} />
+      <Route path="/todoApp" component={TodoApp} />
+      <Route path="/prac2" component={Prac2} />
+      <Route path="/clock" component={Clock} />
     
       </Router>
     );

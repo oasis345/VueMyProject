@@ -6,7 +6,7 @@ class Join extends Component{
         return(
             <div>
                 <form onSubmit="{this.handleSubmit}">
-                <MDBContainer>
+    <MDBContainer>
       <MDBRow>
         <MDBCol md="6">
           <MDBCard>
@@ -47,19 +47,19 @@ class Join extends Component{
                     group
                     type="password"
                     validate
-                  />
-                </div>
-                <div className="text-center py-4 mt-3">
-                  <MDBBtn color="cyan" type="submit">
-                    Register
-                  </MDBBtn>
-                </div>
-              </form>
-                    </MDBCardBody>
-                </MDBCard>
-                </MDBCol>
-            </MDBRow>
-            </MDBContainer>
+                    />
+                  </div>
+                  <div className="text-center py-4 mt-3">
+                    <MDBBtn color="cyan" type="submit">
+                      Register
+                    </MDBBtn>
+                  </div>
+                </form>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
                 </form>
             </div>
         );
